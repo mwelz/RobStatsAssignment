@@ -9,6 +9,7 @@
 
 # 2 degrees of freedom ----------------------------------------------------
 ## Analogue student t-distibutions 2 degrees of freedom
+<<<<<<< HEAD
 
 # number of replication keep m < 1000 
 m=3 # trial run
@@ -17,3 +18,6 @@ n=seq(10,80,by=10)
 
 # sample of student t distribution df=2
 rt(n,df=2)  #ncp non-centrality parameter omitted => central t distribution
+=======
+# Trying to figure out commit and push
+>>>>>>> 3a0655a17cc89728de4ece1d99fce9b5b946c0b4
