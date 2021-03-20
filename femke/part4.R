@@ -16,6 +16,7 @@ m = 3 # trial run
 n = seq(10,80,by=10)
 
 # sample of student t distribution df=2
+<<<<<<< HEAD
 sample = rt(n,df=2)  #ncp non-centrality parameter omitted => central t distribution
 
 # significance level
@@ -27,3 +28,6 @@ counter=0
 empow=counter/n
 # plotting in function of sample size
 # and in function of dimension
+=======
+rt(n,df=2)  #ncp non-centrality parameter omitted => central t distribution
+>>>>>>> 3ae8a8eb27c30ae747644ffe5ec8eb675594c830
