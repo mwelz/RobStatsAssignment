@@ -5,7 +5,7 @@ library(energy)
 # significance level
 alpha = 0.1
 # number of replication keep m < 1000 
-m = 3 # trial run 
+m = 500 # trial run 
 
 
 
@@ -17,12 +17,13 @@ n = seq(10,80,by=10)
 d = 2
 
 
-#results=matrix(0,length(n),m)
-results=rep(0,k)
+results=matrix(0,length(n),m)
+counters=matrix(0,8,1)
 # loop over sample size
 for(k in 1:8){
   # loop over replications
-  # for(j in 1:m){
+  counter=0
+  for(j in 1:m){
     # create data for specific setting
     # samples of student t distribution df=2
     X=matrix(0,n[k],d)
@@ -32,30 +33,24 @@ for(k in 1:8){
       X[,i]= rt(n[k],df=2)
       Y[,i]= rt(n[k],df=2)
     }
-    result=dcor.test(X,Y,R=m) 
+    result=dcor.test(X,Y,R=10) 
     # asks for number of replications?
     # pvalue = NA? 
     # dcor(X,Y)
-    results[k]=result[["p.value"]]
+    results[k,j]=result[["p.value"]]
     
-    # if(result<alpha){
-    # counter=counter+1
-    # }
-  #}
+    if(result[["p.value"]] < alpha){ #reject
+    counter=counter+1
+    }
+  }
+  counters[k]=counter
   # # determine fraction rejecting the null hypothesis
-  # empow=counter/n
   # results[k]= empow
 }
-
-
+empow=counters/m
 
 # plotting empow in function of sample size
 # and in function of dimension
 
 # Try something different --------------------------------------------------
-x=rt(10,2)
-y=rt(10,2)
-z=rt(10,2)
-matrix(data=c(x,y),nrow=10)
-dcor(X,Y)
-dcor.test(X,Y,1,5)
+
