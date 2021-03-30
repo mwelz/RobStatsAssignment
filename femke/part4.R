@@ -25,14 +25,14 @@ for(k in 1:8){
   # for(j in 1:m){
     # create data for specific setting
     # samples of student t distribution df=2
-    X=matrix(0,d,n[k])
-    X[1,]= rt(n[k],df=2)
+    X=matrix(0,n[k],d)
+    X[,1]= rt(n[k],df=2)
     Y=X
     for(i in 2:d){
-      X[i,]= rt(n[k],df=2)
-      Y[i,]= rt(n[k],df=2)
+      X[,i]= rt(n[k],df=2)
+      Y[,i]= rt(n[k],df=2)
     }
-    result=dcor.test(dist(X),dist(Y),R=m) 
+    result=dcor.test(X,Y,R=m) 
     # asks for number of replications?
     # pvalue = NA? 
     # dcor(X,Y)
@@ -53,7 +53,9 @@ for(k in 1:8){
 # and in function of dimension
 
 # Try something different --------------------------------------------------
-X=rt(10,2)
-Y=rt(10,2)
+x=rt(10,2)
+y=rt(10,2)
+z=rt(10,2)
+matrix(data=c(x,y),nrow=10)
 dcor(X,Y)
 dcor.test(X,Y,1,5)
