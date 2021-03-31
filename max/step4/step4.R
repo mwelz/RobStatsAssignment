@@ -8,10 +8,10 @@ rm(list = ls()) ; gc() ; cat("\014")
 
 
 ## 0. initialize ----
-n.set <- c(20, 30) # seq(from = 10, to = 80, by = 10) # uncomment for choices in paper
-d.set <- c(1,2)    # 1:30 # uncomment for choices in paper
-m     <- 3         # number of repetitions (set to 500 later)
-alpha <- 0.1       # significance level
+n.set <- seq(from = 10, to = 80, by = 10) 
+d.set <- 1:30 
+m     <- 1000
+alpha <- 0.1 # significance level
 set.seed(1)
 
 
@@ -69,11 +69,11 @@ for(i in 1:length(n.set)){
     
     # store results
     tests.ls[[paste0("n=", n, "_", "d=", d)]] <- test.mat
-    
+
   } # FOR dimensions
 } # FOR sample size
 
 
 ## 2. store ----
-tests.ls$parameters <- list(m = m, R.values = R.arr, alpha = alpha)
+tests.ls$parameters <- list(m = m, n.set = n.set, d.set = d.set, R.values = R.arr, alpha = alpha)
 save(tests.ls, file = paste0(getwd(), "/max/step4/step4-simdata.Rdata"))
