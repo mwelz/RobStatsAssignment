@@ -84,7 +84,7 @@ tests.ls1=simulate(n.set,2,m,alpha)
 # In function of dimension, n=20 ----
 tests.ls2=simulate(20,d.set,m,alpha)
 
-## x. analysis? ---
+## x. analysis? ----
 
 d.set=2
 empow_classic = matrix(0,length(n.set),length(d.set))
