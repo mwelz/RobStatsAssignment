@@ -50,6 +50,8 @@ for(d in d.set){
        main = paste0("Empirical power at 0.1 significance; d = ", d),
        ylim = c(0,1))
   lines(tests.ave[idx, "n"], tests.ave[idx, "robust_pval"], col = "blue")
+  legend(1, 1, legend=c("classic", "robust"),
+         col=c("black", "blue"), lty=1:2, cex=0.8) # add legend 
   dev.off()
   
 } # FOR
@@ -68,6 +70,8 @@ for(n in n.set){
        main = paste0("Empirical power at 0.1 significance; n = ", n),
        ylim = c(0,1))
   lines(tests.ave[idx, "d"], tests.ave[idx, "robust_pval"], col = "blue")
+  legend(1, 1, legend=c("classic", "robust"),
+         col=c("black", "blue"), lty=1:2, cex=0.8) # add legend 
   dev.off()
   
 } # FOR
