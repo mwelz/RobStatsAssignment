@@ -2,7 +2,7 @@
 #' Revise Figure 16 in the second paper with different settings 
 #' 
 #' Author: mwelz
-#' Last changed: Mar 31, 2021
+#' Last changed: Apr 7, 2021
 #' ----------------------------------------------------------------
 rm(list = ls()) ; gc() ; cat("\014")
 
@@ -18,7 +18,6 @@ g <- function(x){
 set.seed(1)
 n <- 50000 # number of samples
 m <- 500   # simulation runs
-time <- Sys.time()
 
 # for revision of panel 1
 a.arr.panel1          <- seq(from = 0, to = 2e+5, by = 1e4)
@@ -73,10 +72,8 @@ for(i in 1:m){
     dcor.arr.panel2[i,j]       <- energy::dcor2d(x.contam, y.contam)
     dcor.arr.trans.panel2[i,j] <- energy::dcor2d(g(x.contam), g(y.contam))
   } # FOR
-  print(i)
 } # FOR
 
-Sys.time() - time
 
 ## 2. plot the first simulation run ----
 pdf(file = paste0(getwd(), "/max/step3/extension/fig16a-extended.pdf"))
