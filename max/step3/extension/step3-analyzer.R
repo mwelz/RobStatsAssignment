@@ -29,7 +29,7 @@ legend("topleft", legend = c("classic", "robust"),
 dev.off()
 
 pdf(file = paste0(getwd(), "/max/step3/extension/fig16-panel2-extended.pdf"))
-plot(a.arr.panel2, panel2.classic, type = "l", xlab = "a", ylab = "dCor", main = "dCor of linear data with 1 outlier at (a,0)")
+plot(a.arr.panel2, panel2.classic, type = "l", xlab = "a", ylab = "dCor", main = "dCor of linear data with 1 outlier at (a,0)", ylim = c(0,1))
 lines(a.arr.panel2, panel2.robust, type = "l", col = "blue")
 legend("bottomleft", legend = c("classic", "robust"),
        col=c("black", "blue"), lty = c(1,1), cex = 0.8) 
