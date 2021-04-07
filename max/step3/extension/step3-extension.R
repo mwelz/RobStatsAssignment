@@ -17,7 +17,8 @@ g <- function(x){
 ## 0. simulation initialization ----
 set.seed(1)
 n <- 50000 # number of samples
-m <- 1      # simulation runs
+m <- 500   # simulation runs
+time <- Sys.time()
 
 # for revision of panel 1
 a.arr.panel1          <- seq(from = 0, to = 2e+5, by = 1e4)
@@ -72,9 +73,10 @@ for(i in 1:m){
     dcor.arr.panel2[i,j]       <- energy::dcor2d(x.contam, y.contam)
     dcor.arr.trans.panel2[i,j] <- energy::dcor2d(g(x.contam), g(y.contam))
   } # FOR
+  print(i)
 } # FOR
 
-
+Sys.time() - time
 
 ## 2. plot the first simulation run ----
 pdf(file = paste0(getwd(), "/max/step3/extension/fig16a-extended.pdf"))
@@ -88,4 +90,4 @@ lines(a.arr.panel2, dcor.arr.trans.panel2[1,], type = "l", col = "blue")
 dev.off()
 
 ## 3. save the results ----
-save(a.arr.panel1, a.arr.panel2, dcor.arr.trans.panel1, dcor.arr.trans.panel2, file = paste0(getwd(), "/max/step3/extension/step3-simdata.Rdata"))
+save(a.arr.panel1, a.arr.panel2, dcor.arr.panel1, dcor.arr.panel2, dcor.arr.trans.panel1, dcor.arr.trans.panel2, file = paste0(getwd(), "/max/step3/extension/step3-simdata.Rdata"))
