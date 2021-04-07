@@ -75,16 +75,5 @@ for(i in 1:m){
 } # FOR
 
 
-## 2. plot the first simulation run ----
-pdf(file = paste0(getwd(), "/max/step3/extension/fig16a-extended.pdf"))
-plot(a.arr.panel1, dcor.arr.panel1[1,], type = "l", xlab = "a", ylab = "dCor", main = "dCor of Cauchy data with 1 outlier at (a,a)")
-lines(a.arr.panel1, dcor.arr.trans.panel1[1,], type = "l", col = "blue")
-dev.off()
-
-pdf(file = paste0(getwd(), "/max/step3/extension/fig16b-extended.pdf"))
-plot(a.arr.panel2, dcor.arr.panel2[1,], type = "l", xlab = "a", ylab = "dCor", main = "dCor of linear data with 1 outlier at (a,0)")
-lines(a.arr.panel2, dcor.arr.trans.panel2[1,], type = "l", col = "blue")
-dev.off()
-
-## 3. save the results ----
+## 2. save the results ----
 save(a.arr.panel1, a.arr.panel2, dcor.arr.panel1, dcor.arr.panel2, dcor.arr.trans.panel1, dcor.arr.trans.panel2, file = paste0(getwd(), "/max/step3/extension/step3-simdata.Rdata"))
