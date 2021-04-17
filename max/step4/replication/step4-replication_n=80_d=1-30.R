@@ -2,14 +2,14 @@
 #' Revise Figure 8 in the second paper with different settings 
 #' 
 #' Author: mwelz & femke
-#' Last changed: Apr 1, 2021
+#' Last changed: Apr 17, 2021
 #' ----------------------------------------------------------------
 # initialize simulation parameters
 n.set <- 80
 d.set <- 1:30
 m     <- 200
 alpha <- 0.1 # significance level
-
+set.seed(1)
 # simulate
 tests.ls <- simulate(n.set = n.set, d.set = d.set, m = m, seed = 1, df = 1)
 # runtime ~2 min
