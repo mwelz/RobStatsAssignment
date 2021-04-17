@@ -1,15 +1,18 @@
 #' ----------------------------------------------------------------
-#' Revise Figure 8 in the second paper with different settings:
-#' Analyze the simulation results 
+#' Revise Figure 8 in the second paper with different settings 
 #' 
-#' Author: mwelz 
+#' Author: mwelz & femke
 #' Last changed: Apr 1, 2021
 #' ----------------------------------------------------------------
-rm(list = ls()) ; cat("\014")
+# initialize simulation parameters
+n.set <- 80
+d.set <- 1:30
+m     <- 200
+alpha <- 0.1 # significance level
 
-# load the list with the simulation results: "tests.ls"
-load(paste0(getwd(), "/max/step4/replication/step4-replication-simdata.Rdata"))
-
+# simulate
+tests.ls <- simulate(n.set = n.set, d.set = d.set, m = m, seed = 1, df = 1)
+# runtime ~2 min
 scenarios <- names(tests.ls)
 scenarios <- scenarios[-which(scenarios == "parameters")]
 
@@ -19,7 +22,7 @@ d.set <- tests.ls$parameters$d.set
 
 tests.ave <- matrix(NA_real_, nrow = length(scenarios), ncol = 8)
 rownames(tests.ave) <- scenarios
-colnames(tests.ave) <- c("n", "d", colnames(tests.ls$`n=10_d=1`))
+colnames(tests.ave) <- c("n", "d", colnames(tests.ls$`n=80_d=1`))
 
 # average over the _m_ simulation runs
 for(i in 1:length(scenarios)){
@@ -34,34 +37,9 @@ for(i in 1:length(scenarios)){
   
   # averages of the summary statistics of the test
   tests.ave[i,] <- c(n, d, apply(tests.ls[[scenario]], 2, mean))
-
-} # FOR
-
-#tests.ave[tests.ave[, "d"] == 2,]
-
-
-# left panel: fix d
-for(d in d.set){
-  
-  # extract the relevant observations
-  idx <- unname(tests.ave[, "d"] == d)
-  tests.ave[idx,]
-  
-  plot(x=tests.ave[idx, "n"], y=tests.ave[idx, "classic_pval"])
-  
-  
-  pdf(file = paste0(getwd(),
-                    "/max/step4/replication/plot-fixed-d/plot_d=", d, ".pdf"))
-  plot(tests.ave[idx, "n"], tests.ave[idx, "classic_reject"], 
-       xlab = "sample size n", ylab = "power", type = "l", lty = 2,
-       main = paste0("Empirical power at 0.1 significance; d = ", d),
-       ylim = c(0,1))
-  lines(tests.ave[idx, "n"], tests.ave[idx, "robust_reject"], col = "blue")
-  legend("bottomleft", legend = c("classic", "robust"),
-         col=c("black", "blue"), lty = c(2,1), cex = 0.8) # add legend 
-  dev.off()
   
 } # FOR
+
 
 
 # right panel: fix n
@@ -82,3 +60,4 @@ for(n in n.set){
   dev.off()
   
 } # FOR
+
