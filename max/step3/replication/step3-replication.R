@@ -69,6 +69,8 @@ for(i in 1:length(a.arr)){
 } # FOR
 
 pdf(file = paste0(getwd(), "/max/step3/replication/fig16b.pdf"))
-plot(a.arr, dcor.arr, type = "l", xlab = "a", ylab = "dCor", main = "dCor of linear data with 1 outlier at (a,0)")
+plot(a.arr, dcor.arr, type = "l", xlab = "a", ylab = "dCor", 
+     main = "dCor of linear data with 1 outlier at (a,0)",
+     cex=1.5,cex.lab=1.6, cex.main=1.8)
 lines(a.arr, dcor.trans.arr, type = "l", col = "blue")
 dev.off()
