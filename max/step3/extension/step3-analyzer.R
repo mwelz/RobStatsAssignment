@@ -22,15 +22,19 @@ panel2.robust  <- colMeans(dcor.arr.trans.panel2)
 
 # plot the averages
 pdf(file = paste0(getwd(), "/max/step3/extension/fig16-panel1-extended.pdf"))
-plot(a.arr.panel1, panel1.classic, type = "l", xlab = "a", ylab = "dCor", main = "dCor of Cauchy data with 1 outlier at (a,a)", ylim = c(0,1))
+plot(a.arr.panel1, panel1.classic, type = "l", xlab = "a", ylab = "dCor", 
+     main = "dCor of Cauchy data with 1 outlier at (a,a)", ylim = c(0,1),
+     cex=1.5,cex.lab=1.6, cex.main=1.8)
 lines(a.arr.panel1, panel1.robust, type = "l", col = "blue")
 legend("topleft", legend = c("classic", "robust"),
-       col=c("black", "blue"), lty = c(1,1), cex = 0.8)
+       col=c("black", "blue"), lty = c(1,1), cex = 1.6)
 dev.off()
 
 pdf(file = paste0(getwd(), "/max/step3/extension/fig16-panel2-extended.pdf"))
-plot(a.arr.panel2, panel2.classic, type = "l", xlab = "a", ylab = "dCor", main = "dCor of linear data with 1 outlier at (a,0)", ylim = c(0,1))
+plot(a.arr.panel2, panel2.classic, type = "l", xlab = "a", ylab = "dCor", 
+     main = "dCor of linear data with 1 outlier at (a,0)", ylim = c(0,1),
+     cex=1.5,cex.lab=1.6, cex.main=1.8)
 lines(a.arr.panel2, panel2.robust, type = "l", col = "blue")
 legend("bottomleft", legend = c("classic", "robust"),
-       col=c("black", "blue"), lty = c(1,1), cex = 0.8) 
+       col=c("black", "blue"), lty = c(1,1), cex = 1.6) 
 dev.off()
