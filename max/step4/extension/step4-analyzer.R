@@ -48,10 +48,11 @@ for(d in d.set){
   plot(tests.ave[idx, "n"], tests.ave[idx, "classic_reject"], 
        xlab = "sample size n", ylab = "power", type = "l", lty = 2,
        main = paste0("Empirical power at 0.1 significance; d = ", d),
-       ylim = c(0,1))
+       ylim = c(0,1), 
+       cex = 1.5, cex.lab = 1.8, cex.main = 1.8, cex.axis = 1.6)
   lines(tests.ave[idx, "n"], tests.ave[idx, "robust_reject"], col = "blue")
   legend("bottomleft", legend = c("classic", "robust"),
-         col=c("black", "blue"), lty = c(2,1), cex = 0.8) # add legend 
+         col=c("black", "blue"), lty = c(2,1), cex = 1.6) # add legend 
   dev.off()
   
 } # FOR
@@ -68,10 +69,11 @@ for(n in n.set){
   plot(tests.ave[idx, "d"], tests.ave[idx, "classic_reject"], 
        xlab = "dimension d", ylab = "power", type = "l", lty = 2,
        main = paste0("Empirical power at 0.1 significance; n = ", n),
-       ylim = c(0,1),cex=1.5,cex.lab=1.6, cex.main=1.8)
+       ylim = c(0,1),
+       cex = 1.5, cex.lab = 1.8, cex.main = 1.8, cex.axis = 1.6)
   lines(tests.ave[idx, "d"], tests.ave[idx, "robust_reject"], col = "blue")
   legend("bottomleft", legend = c("classic", "robust"),
-         col=c("black", "blue"), lty = c(2,1),cex=1.6) # add legend 
+         col=c("black", "blue"), lty = c(2,1), cex = 1.6) # add legend 
   dev.off()
   
 } # FOR
