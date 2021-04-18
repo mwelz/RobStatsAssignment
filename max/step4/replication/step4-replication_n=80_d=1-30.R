@@ -2,17 +2,18 @@
 #' Revise Figure 8 in the second paper with different settings 
 #' 
 #' Author: mwelz & femke
-#' Last changed: Apr 17, 2021
+#' Last changed: Apr 18, 2021
 #' ----------------------------------------------------------------
-# initialize simulation parameters
+# # initialize simulation parameters
 n.set <- 80
 d.set <- 1:30
-m     <- 200
+m     <- 1000
 alpha <- 0.1 # significance level
 set.seed(1)
 # simulate
 tests.ls <- simulate(n.set = n.set, d.set = d.set, m = m, seed = 1, df = 1)
-# runtime ~2 min
+# # runtime ~2 min
+# load(paste0(getwd(),"/femke/data_n=80_d=1-30_df=1.RData"))
 scenarios <- names(tests.ls)
 scenarios <- scenarios[-which(scenarios == "parameters")]
 
