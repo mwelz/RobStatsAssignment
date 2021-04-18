@@ -1,0 +1,1 @@
+Here you find a replication file for Figure 1 and Table 1 of the final assignment. The three pdf files are the three subfigures in Figure 1.

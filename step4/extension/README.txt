@@ -1,0 +1,3 @@
+The script "step4.R" performs the simulation study in Section 4 of the final assignment and stores its results in "step4-simdata.Rdata". Runtime: ~25 minutes on a Dell Latitude 5300 with 32 GB RAM, 8x1.60GHz i5-8265U CPU, running on Ubuntu 20.10. 
+The script "step4-analyzer.R" generates the plots stored in the folders "plot-fixed-d", and "plot-fixed-n". There you can find the subplots of Figure 4 of the final assignment.
+The script "step4-functions.R" contains some helper functions.

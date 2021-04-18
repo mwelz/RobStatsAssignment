@@ -1,0 +1,1 @@
+"step3-extension.R" performs the simulation studies described in Section 3 of the final assignment and generates step3-simdata.Rdata. The script "step3-analyzer.R" generates the pdf files "fig16-panel1-extended.pdf" and "fig16-panel2-extended.pdf", which are the subfigures in Figure 2. 
